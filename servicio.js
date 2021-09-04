@@ -31,8 +31,33 @@ fetch(uri,parametrosPeticion)
 
 function pintarDatos(datos){
 
+    let fila=document.getElementById("fila");
     datos.forEach(function(cancion){
-        console.log("el lider es el verde")
+        
+        let columna=document.createElement("div");
+        columna.classList.add("col");
+
+        let tarjeta=document.createElement("div");
+        tarjeta.classList.add("card")
+        tarjeta.classList.add("h-100")
+
+        let imagen=document.createElement("img");
+        imagen.classList.add("card-img-top");
+        imagen.src=cancion.album.images[0].url;
+
+        let titulo=document.createElement("h1");
+        titulo.textContent=cancion.name
+
+
+        //PADRES E HIJOS
+        tarjeta.appendChild(imagen);
+        
+       
+
+        columna.appendChild(tarjeta);
+        fila.appendChild(columna);
+
+
     })
 
 }
